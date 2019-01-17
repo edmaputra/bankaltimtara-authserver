@@ -1,8 +1,10 @@
 package id.co.bankaltimtara.authserver.service;
 
+import id.co.bankaltimtara.authserver.entity.BaseEntity;
+
 import java.io.Serializable;
 
-public interface ABaseService<T, ID extends Serializable> {
+public interface ABaseService<T extends Serializable, ID> {
 
     Iterable<T> findAll() throws Exception;
 

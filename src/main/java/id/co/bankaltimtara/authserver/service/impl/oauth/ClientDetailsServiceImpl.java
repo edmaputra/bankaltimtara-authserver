@@ -5,6 +5,8 @@ import id.co.bankaltimtara.authserver.repository.oauth.ClientDetailsRepository;
 import id.co.bankaltimtara.authserver.service.ClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 public class ClientDetailsServiceImpl implements ClientDetailsService {
@@ -17,8 +19,14 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Iterable<ClientDetails> findAll() throws Exception {
-        return repository.findAll();
+        try {
+            return repository.findAll();
+        } catch (Exception e) {
+            throw new Exception("Not Found");
+        }
+
     }
 
     @Override

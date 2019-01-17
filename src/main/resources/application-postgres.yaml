@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5433/auth-server
+    username: postgres
+    password: kotabangun1
+    initialize: true
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+#      ddl-auto: create-drop
+      ddl-auto: validate
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        id:
+          new_generator_mapping: true

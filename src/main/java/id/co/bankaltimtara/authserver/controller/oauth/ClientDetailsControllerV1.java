@@ -4,6 +4,7 @@ import id.co.bankaltimtara.authserver.controller.ABaseController;
 import id.co.bankaltimtara.authserver.entity.oauth.ClientDetails;
 import id.co.bankaltimtara.authserver.service.ClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +17,9 @@ public class ClientDetailsControllerV1 extends ABaseController<ClientDetails, Lo
         super(service);
     }
 
-
+    @Override
+    @GetMapping("/all")
+    public Iterable<ClientDetails> findAll() throws Exception {
+        return super.findAll();
+    }
 }

@@ -15,4 +15,6 @@ public class ClientDetailsController extends ABaseController<ClientDetails, Long
     public ClientDetailsController(ClientDetailsService service) {
         super(service);
     }
+
+
 }
